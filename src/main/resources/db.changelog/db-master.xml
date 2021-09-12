@@ -10,5 +10,4 @@
     <!-- ************************************ СОЗДАЕМ ТАБЛИЦЫ  ***************************************************** -->
     <include file="born_db/tables/tables.xml" relativeToChangelogFile="true"/>
 
-
 </databaseChangeLog>
