@@ -1,0 +1,19 @@
+package com.trrp.trrp0.model
+
+import javax.persistence.*
+
+@Entity
+@Table(name = "t_city")
+data class City(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id")
+    val id: Long = 0L,
+
+    @Column(name = "city_name")
+    var name: String = "",
+
+    @ManyToOne
+    @JoinColumn(name = "country_id", referencedColumnName = "country_id")
+    var country: Country? = null
+)
