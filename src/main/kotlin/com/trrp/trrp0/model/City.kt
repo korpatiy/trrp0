@@ -13,7 +13,7 @@ data class City(
     @Column(name = "city_name")
     var name: String = "",
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", referencedColumnName = "country_id")
     var country: Country? = null
 )

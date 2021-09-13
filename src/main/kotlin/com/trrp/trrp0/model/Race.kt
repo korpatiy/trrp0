@@ -22,15 +22,15 @@ data class Race(
     @Column(name = "start_time")
     val startTime: LocalDateTime = LocalDateTime.now(),
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stage_id", referencedColumnName = "stage_id")
     val stage: Stage? = null,
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "track_id", referencedColumnName = "track_id")
     val track: Track? = null,
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "disc_id", referencedColumnName = "disc_id")
     val discipline: Discipline? = null
 )

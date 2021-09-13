@@ -1,5 +1,6 @@
 package com.trrp.trrp0.model
 
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -13,11 +14,17 @@ data class Stage(
     @Column(name = "stage_name")
     val name: String = "",
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "champ_id", referencedColumnName = "champ_id")
     val championship: Championship? = null,
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", referencedColumnName = "city_id")
-    val city: City? = null
+    val city: City? = null,
+
+    @Column(name = "start_date")
+    val startDate: LocalDate = LocalDate.MIN,
+
+    @Column(name = "end_date")
+    val endDate: LocalDate = LocalDate.MIN,
 )
